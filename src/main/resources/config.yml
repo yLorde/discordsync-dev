@@ -27,7 +27,7 @@ discord:
     linkedRoleId: "ID_DO_CARGO_DE_VINCULADO"
 
 syncOptions:
-  allowUnsynchronizedPlayers: true
+  allowUnsynchronizedPlayers: false
   kickMessage: "Apenas permitido entrada de jogadores vinculados ao discord \n &aEntre no discord &7%guild_invite_url \n &eSeu código de conexão: &a%link_code \n\n &aUse &b/sync"
 
 console:
@@ -35,6 +35,11 @@ console:
   commandWhenUnsync: "lp user %player_nickname parent unset vinculado"
 
 commands:
+  reloadConfig:
+    enabled: true
+    permission: discordsync.commands.reloadconfig
+    onUseMessage: "&aAs configurações do &eDiscordSync &aforam recarregadas com sucesso!"
+
   sync:
     enabled: true
     permission: discordsync.commands.sync
@@ -45,7 +50,7 @@ commands:
     enabled: true
     permission: discordsync.commands.unsync
     onSuccessCommand: "&aVocê se desvinculou com sucesso!"
-    onErroCommand: "&cVocê não está vinculado ao discord!"
+    onErrorCommand: "&cVocê não está vinculado ao discord!"
 
   discord:
     enabled: true

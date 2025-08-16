@@ -55,9 +55,17 @@ public final class Main extends JavaPlugin {
         if (checkConfig.checkString(this, "discord.guild.linkedRoleId", "ID_DO_CARGO_DE_VINCULADO")) return;
 
         try {
+            Console console = new Console();
             discordBot.start();
+
+            console.sendColoredMessage("&a[DiscordSync::DiscordClient] >> Aplicação iniciada e carregada com sucesso!");
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void reloadConfig() {
+        super.reloadConfig();
     }
 }

@@ -5,4 +5,4 @@ api-version: '1.21'
 load: STARTUP
 authors: [ "yLorde" ]
 description: Plugin feito para conectar o Discord ao minecraft
-website: https://www.ylorde.com.br
+website: www.ylorde.com.br

@@ -39,7 +39,7 @@ public class SyncCommand {
                 String random_code = null;
                 String discord_id = null;
 
-                try (PreparedStatement stmt = connection.prepareStatement("SELECT * players WHERE uuid = ?;")) {
+                try (PreparedStatement stmt = connection.prepareStatement("SELECT * FROM players WHERE uuid = ?;")) {
                     stmt.setString(1, player.getUniqueId().toString());
                     try (ResultSet rs = stmt.executeQuery()) {
                         if (rs.next()) {
@@ -73,7 +73,7 @@ public class SyncCommand {
                 }
 
                 player.sendMessage(convertToColoredText.convert(
-                        Objects.requireNonNull(plugin.getConfig().getString("commands.sync.onUseMessage"))
+                        Objects.requireNonNull(plugin.getConfig().getString("commands.sync.unlikedMessage"))
                                 .replace("%link_code", random_code)
                 ));
 
