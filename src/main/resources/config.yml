@@ -1,0 +1,53 @@
+#██████╗░██╗░██████╗░█████╗░░█████╗░██████╗░██████╗░░██████╗██╗░░░██╗███╗░░██╗░█████╗░
+#██╔══██╗██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝╚██╗░██╔╝████╗░██║██╔══██╗
+#██║░░██║██║╚█████╗░██║░░╚═╝██║░░██║██████╔╝██║░░██║╚█████╗░░╚████╔╝░██╔██╗██║██║░░╚═╝
+#██║░░██║██║░╚═══██╗██║░░██╗██║░░██║██╔══██╗██║░░██║░╚═══██╗░░╚██╔╝░░██║╚████║██║░░██╗
+#██████╔╝██║██████╔╝╚█████╔╝╚█████╔╝██║░░██║██████╔╝██████╔╝░░░██║░░░██║░╚███║╚█████╔╝
+#╚═════╝░╚═╝╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚══╝░╚════╝░
+
+#PLACEHOLDERS:
+# %player_nickname: nickname do jogador
+# %link_code: código de vincular ao discord
+# %player_discord_id: ID do discord do jogador (se vinculado)
+# guild_invite_url: URL de convite do servidor
+
+#NzgtNDYtOTctMzMtNTYtMTMtMzAtMTgzLTYzLTE0NC0xNzUtMjAw
+
+plugin:
+  disableHelloMessage: false
+  autoUpdate: false
+
+discord:
+  bot:
+    botToken: "SEU_TOKEN"
+    botStatus: "www.ylorde.com.br"
+  guild:
+    inviteUrl: "https://discord.com/invite/example"
+    guildId: "ID_DO_SEU_SERVIDOR"
+    linkedRoleId: "ID_DO_CARGO_DE_VINCULADO"
+
+syncOptions:
+  allowUnsynchronizedPlayers: true
+  kickMessage: "Apenas permitido entrada de jogadores vinculados ao discord \n &aEntre no discord &7%guild_invite_url \n &eSeu código de conexão: &a%link_code \n\n &aUse &b/sync"
+
+console:
+  commandWhenSync: "lp user %player_nickname parent set vinculado"
+  commandWhenUnsync: "lp user %player_nickname parent unset vinculado"
+
+commands:
+  sync:
+    enabled: true
+    permission: discordsync.commands.sync
+    unlikedMessage: "&aPara se vincular use o comando no discord: &e/sync %link_code"
+    alreadyLinkedMessage: "&aVocê já está viculado ao discord &e[&c%player_discord_id&e]"
+
+  unsync:
+    enabled: true
+    permission: discordsync.commands.unsync
+    onSuccessCommand: "&aVocê se desvinculou com sucesso!"
+    onErroCommand: "&cVocê não está vinculado ao discord!"
+
+  discord:
+    enabled: true
+    permission: discordsync.commands.discord
+    onUseMessage: "&aEntre no nosso discord: &e%guild_invite_url"
