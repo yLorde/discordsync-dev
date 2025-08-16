@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="discordsync:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/discordsync_jar</output-path>
+    <root id="archive" name="discordsync.jar">
+      <element id="module-output" name="discordsync" />
+    </root>
+  </artifact>
+</component>
